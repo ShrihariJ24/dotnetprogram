@@ -1,0 +1,18 @@
+using System;
+using System.Text.RegularExpressions;
+
+class Dateformat
+{
+    static void Main(string[] args){
+        Console.WriteLine("Enter a string : ");
+        string String=Console.ReadLine();
+        string pattern = @"\b(0[1-9]|1[0-2])(0[1-9]|[12][0-9]|3[01])(19|20)\d{2}\b";
+        Regex regex=new Regex(pattern);
+        MatchCollection matches = regex.Matches(String);
+        Console.WriteLine("Dates found in the input:");
+        foreach (Match match in matches)
+        {
+            Console.WriteLine(match.Value);
+        }
+    }
+}
